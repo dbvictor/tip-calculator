@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Tip Calculator</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="bill_hint">Enter</string>
+    <string name="tip_default"></string>
+    <string name="tip_label">Tip:</string>
+    <string name="bill_label">"Bill: "</string>
+    <string name="tip_pct_default"></string>
+    
+</resources>
