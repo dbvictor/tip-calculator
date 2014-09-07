@@ -18,6 +18,7 @@ public final class R {
         public static final int btPreset2=0x7f060003;
         public static final int btPreset3=0x7f060004;
         public static final int etBillTotal=0x7f060001;
+        public static final int npCustom=0x7f060008;
         public static final int tvBillLabel=0x7f060000;
         public static final int tvTipLabel=0x7f060007;
         public static final int tvTipPct=0x7f060006;

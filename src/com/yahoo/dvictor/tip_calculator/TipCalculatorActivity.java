@@ -9,6 +9,7 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.NumberPicker;
 import android.widget.TextView;
 
 public class TipCalculatorActivity extends Activity {
@@ -30,9 +31,18 @@ public class TipCalculatorActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_tip_calculator);
+		// If the bill total changes, recalculate without having to click a button again.
 		setupBillValueChangedListener();
+		// Configure the customer % number picker settings that can't be set in the XML
+		NumberPicker np = (NumberPicker) findViewById(R.id.npCustom);
+		np.setMinValue(1);
+		np.setMaxValue(99);
+		np.setValue(percent_custom);
+		// The number picker isn't a button, but we need to calculate value whenever it changes.
+		setupCustomTipListener();
 	}
 	
+	/** Setup a listener on the bill total field to detect user changes and auto-recalculate without having to click a button again. */
 	private void setupBillValueChangedListener(){
 		EditText et = (EditText) findViewById(R.id.etBillTotal);
 		et.addTextChangedListener(new TextWatcher() {
@@ -48,6 +58,17 @@ public class TipCalculatorActivity extends Activity {
 		        if(percent_lastUsed>=0) calculate(null);
 		    }
 		});	
+	}
+	
+	/** Setup a listener on the custom percentage number picker to calculate the value whenever it changes. */
+	private void setupCustomTipListener(){
+		NumberPicker np = (NumberPicker) findViewById(R.id.npCustom);
+		np.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
+			@Override public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
+				percent_custom = picker.getValue();
+				calculate(picker);
+			}
+		});
 	}
 	
 	/** Calculate the tip % based on the button pressed. */
@@ -85,11 +106,11 @@ public class TipCalculatorActivity extends Activity {
 		Button b1 = (Button) findViewById(R.id.btPreset1);
 		Button b2 = (Button) findViewById(R.id.btPreset2);
 		Button b3 = (Button) findViewById(R.id.btPreset3);
-		//future: Button bx = (Button) findViewById(R.id.btCustom);
+		NumberPicker bx = (NumberPicker) findViewById(R.id.npCustom);
 		     if(v.getId()==b1.getId()) return percent_preset1;
 		else if(v.getId()==b2.getId()) return percent_preset2;
 		else if(v.getId()==b3.getId()) return percent_preset3;
-		//future: else if(v.getId()==bx.getId()) return percent_custom;
+		else if(v.getId()==bx.getId()) return percent_custom;
 		else throw new RuntimeException("Unexpected view: "+v.toString());
 	}
 	
