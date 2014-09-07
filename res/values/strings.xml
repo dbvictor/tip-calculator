@@ -8,5 +8,7 @@
     <string name="tip_label">Tip:</string>
     <string name="bill_label">"Bill: "</string>
     <string name="tip_pct_default"></string>
+    <string name="split_label">"Split X: "</string>
+    <string name="split_hint">People</string>
     
 </resources>

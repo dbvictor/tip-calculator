@@ -18,8 +18,10 @@ public final class R {
         public static final int btPreset2=0x7f060003;
         public static final int btPreset3=0x7f060004;
         public static final int etBillTotal=0x7f060001;
+        public static final int etSplit=0x7f060009;
         public static final int npCustom=0x7f060008;
         public static final int tvBillLabel=0x7f060000;
+        public static final int tvSplitLabel=0x7f06000a;
         public static final int tvTipLabel=0x7f060007;
         public static final int tvTipPct=0x7f060006;
         public static final int tvTipTotal=0x7f060005;
@@ -32,6 +34,8 @@ public final class R {
         public static final int bill_hint=0x7f040002;
         public static final int bill_label=0x7f040005;
         public static final int hello_world=0x7f040001;
+        public static final int split_hint=0x7f040008;
+        public static final int split_label=0x7f040007;
         public static final int tip_default=0x7f040003;
         public static final int tip_label=0x7f040004;
         public static final int tip_pct_default=0x7f040006;
